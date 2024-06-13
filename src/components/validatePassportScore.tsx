@@ -4,7 +4,9 @@ import { ValidatePassportScoreProps } from "@/types/kyc";
 import { useEffect } from "react";
 import { Spinner } from "./ui/spinner";
 
-export default function ValidatePassportScore(props: ValidatePassportScoreProps) {
+export default function ValidatePassportScore(
+  props: ValidatePassportScoreProps,
+) {
   const { score } = useGetScore(props);
   const { loading } = useLoading();
   const parsedScore = parseInt(score) / 10_000;
@@ -16,5 +18,7 @@ export default function ValidatePassportScore(props: ValidatePassportScoreProps)
   if (loading) {
     return <Spinner className="mx-auto" />;
   }
-  return <div className="text-center">{`Current passport score: ${parsedScore}`}</div>;
+  return (
+    <div className="text-center">{`Current passport score: ${parsedScore}`}</div>
+  );
 }
