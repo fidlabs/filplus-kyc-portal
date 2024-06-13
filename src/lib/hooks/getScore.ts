@@ -30,7 +30,7 @@ export default function useGetScore({
       setLoading(false);
       setScore("0");
     }
-  }, [data, error]);
+  }, [data, error, setLoading]);
 
   return { score };
 }

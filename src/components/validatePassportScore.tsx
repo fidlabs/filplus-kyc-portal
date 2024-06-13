@@ -13,7 +13,7 @@ export default function ValidatePassportScore(
 
   useEffect(() => {
     if (score) props.onScoreChange(parsedScore);
-  }, [score]);
+  }, [score, props, parsedScore]);
 
   if (loading) {
     return <Spinner className="mx-auto" />;

@@ -34,7 +34,14 @@ const useNetworkConfig = () => {
         explorerUrl: NEXT_PUBLIC_EXPLORER_URL,
       },
     }),
-    [NEXT_PUBLIC_CHAIN_ID, NEXT_PUBLIC_RPC_URL, NEXT_PUBLIC_EXPLORER_URL],
+    [
+      NEXT_PUBLIC_CHAIN_ID,
+      NEXT_PUBLIC_RPC_URL,
+      NEXT_PUBLIC_EXPLORER_URL,
+      NEXT_PUBLIC_CHAIN_NAME,
+      NEXT_PUBLIC_NATIVE_CURRENCY,
+      NEXT_PUBLIC_SYMBOL,
+    ],
   );
 };
 

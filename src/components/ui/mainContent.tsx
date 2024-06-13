@@ -58,14 +58,14 @@ export default function MainContent({
             of {env.NEXT_PUBLIC_SCORE_THRESHOLD}
           </li>
           <li className="mb-2">
-            "
+            &quot;
             <a
               href="https://support.passport.xyz/passport-knowledge-base/using-passport/onchain-passport"
               className="text-blue-500 underline"
             >
               Bring Passport onchain
             </a>
-            " to Optimism network
+            &quot; to Optimism network
           </li>
         </ul>
         <ValidatePassportScore
