@@ -37,7 +37,7 @@ export default function MainContent({
           As part of your DataCap Request Application, you are required to
           complete KYC verification.
         </p>
-        <p>To do so, please follow these steps:</p>
+        <p>To do so, you'll have to follow these steps:</p>
         <br />
         <ul className="list-disc list-inside">
           <li className="mb-2">Obtain a Gitcoin Passport</li>
