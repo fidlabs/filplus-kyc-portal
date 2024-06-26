@@ -40,7 +40,9 @@ export default function MainContent({
         <p>To do so, you'll have to follow these steps:</p>
         <br />
         <ul className="list-disc list-inside">
-          <li className="mb-2">Obtain a <a href="https://passport.gitcoin.co/">Gitcoin Passport</a></li>
+          <li className="mb-2">
+            Obtain a <a href="https://passport.gitcoin.co/">Gitcoin Passport</a>
+          </li>
           <li className="mb-2">
             Ensure your passport score meets the minimum requirement of $
             {scoreThreshold}

@@ -1,11 +1,13 @@
 "use client";
 
 import { Modal } from "@/components/modals/modal";
+import { Card } from "@/components/ui/card";
 import KycApproval from "@/components/ui/kycApproval";
 import MainContent from "@/components/ui/mainContent";
 import { env } from "@/env";
 import useIsClient from "@/lib/hooks/useIsClient";
 import { useLoading } from "@/lib/providers/loading.provider.client";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useAccount } from "wagmi";
@@ -37,6 +39,12 @@ export default function Home() {
   const showConnectWalletMsg = !isConnected && isClient;
   return (
     <>
+      {isConnected && (
+        <Card className="p-2 flex justify-end">
+          <ConnectButton showBalance={false} />
+        </Card>
+      )}
+
       <main className="flex flex-col items-center justify-between p-24">
         <MainContent
           address={address}
