@@ -1,14 +1,17 @@
+import { useWagmiConfig } from "@/app/wagmiConfig";
 import { env } from "@/env";
+import { useLoading } from "@/lib/providers/loading.provider.client";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { ValidatePassportScore } from "filplus-validate-score";
 import { Address, Chain } from "viem";
-import ValidatePassportScore from "../validatePassportScore";
+import SimplerSpinner from "./simpleSpinner";
 
 type MainContentProps = {
   searchParamsProvided: boolean;
   showConnectWalletMsg: boolean;
   address?: Address;
   chain?: Chain;
-  setScore: (score: number) => void;
+  setScore: (score: number | null) => void;
 };
 
 export default function MainContent({
@@ -18,6 +21,9 @@ export default function MainContent({
   chain,
   setScore,
 }: MainContentProps) {
+  const wagmiConfig = useWagmiConfig();
+  const { setLoading } = useLoading();
+
   const scoreThreshold = env.NEXT_PUBLIC_SCORE_THRESHOLD;
   if (!searchParamsProvided)
     return (
@@ -119,11 +125,19 @@ export default function MainContent({
             &quot; to Optimism network
           </li>
         </ul>
-        <ValidatePassportScore
-          address={address}
-          chain={chain}
-          onScoreChange={setScore}
-        />
+        {address && (
+          <ValidatePassportScore
+            walletAddress={address}
+            onScoreChange={setScore}
+            decoderContractAddress={
+              env.NEXT_PUBLIC_DECODER_CONTRACT_ADDRESS as Address
+            }
+            scoreDivider={BigInt(10_000)}
+            wagmiConfig={wagmiConfig}
+            onLoading={setLoading}
+            IndicatorComponent={SimplerSpinner}
+          />
+        )}
       </>
     </div>
   );
