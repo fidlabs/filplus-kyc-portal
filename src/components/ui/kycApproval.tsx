@@ -57,11 +57,11 @@ export default function KycApproval({
         {
           message,
           signature,
-        }
+        },
       );
       setLoading(false);
       router.push(
-        `https://www.github.com/${repoOwner}/${repoName}/issues/${repoIssue}`
+        `https://www.github.com/${repoOwner}/${repoName}/issues/${repoIssue}`,
       );
     } catch (e) {
       if (e instanceof Error) {
