@@ -15,7 +15,7 @@ import { useAccount } from "wagmi";
 export default function Home() {
   const [modalMessage, setModalMessage] = useState<string | null>(null);
   const isClient = useIsClient();
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState<number | null>(null);
   const [error, setError] = useState(false);
   const { loading } = useLoading();
   const { isConnected, address, chain, connector } = useAccount();
@@ -53,7 +53,7 @@ export default function Home() {
           setScore={setScore}
           showConnectWalletMsg={showConnectWalletMsg}
         />
-        {score >= env.NEXT_PUBLIC_SCORE_THRESHOLD && !loading && (
+        {score && score >= env.NEXT_PUBLIC_SCORE_THRESHOLD && !loading && (
           <KycApproval
             account={address}
             connector={connector}

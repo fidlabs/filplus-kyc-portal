@@ -1,6 +1,7 @@
-import { Button } from "./button";
-import { useApi } from "@/hooks";
+import { useWagmiConfig } from "@/app/wagmiConfig";
 import { env } from "@/env";
+import { useApi } from "@/hooks";
+import { useLoading } from "@/lib/providers/loading.provider.client";
 import {
   PRIMARY_TYPE,
   createApprovalTypes,
@@ -9,13 +10,8 @@ import {
 } from "@/lib/utils";
 import { KycProps } from "@/types/kyc";
 import { signTypedData } from "@wagmi/core";
-import { useWagmiConfig } from "@/app/wagmiConfig";
-import { useLoading } from "@/lib/providers/loading.provider.client";
 import { useRouter } from "next/navigation";
-
-interface CustomError extends Error {
-  message: string;
-}
+import { Button } from "./button";
 
 export default function KycApproval({
   account,
