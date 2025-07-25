@@ -48,7 +48,7 @@ This project is a Next.js-based portal for FilPlus KYC, integrating with Gitcoin
 
 ### User Flow
 
-1. **Instructions & Guidance:**  
+1. **Instructions & Guidance:**
    The UI (see `src/components/ui/mainContent.tsx`) provides step-by-step instructions for users to:
    - Obtain a Gitcoin Passport.
    - Achieve the required score.
@@ -80,22 +80,22 @@ This project is a Next.js-based portal for FilPlus KYC, integrating with Gitcoin
 
 ## Key Files and Components
 
-- **`src/app/(routes)/page.tsx`**  
+- **`src/app/(routes)/page.tsx`**
   Main entry point for the user flow. Handles wallet connection, score validation, and KYC submission.
 
-- **`src/components/ui/mainContent.tsx`**  
+- **`src/components/ui/mainContent.tsx`**
   Displays instructions and integrates the passport score validation component.
 
-- **`src/components/validatePassportScore.tsx`**  
+- **`src/components/validatePassportScore.tsx`**
   Fetches and displays the user's Gitcoin Passport score.
 
-- **`src/lib/hooks/getScore.ts`**  
+- **`src/lib/hooks/getScore.ts`**
   React hook for reading the passport score from the blockchain.
 
-- **`src/blockchain/abi.ts`**  
+- **`src/blockchain/abi.ts`**
   Contains the ABI for the smart contract, including the `getScore` and other relevant functions.
 
-- **`src/components/ui/kycApproval.tsx`**  
+- **`src/components/ui/kycApproval.tsx`**
   Handles the KYC submission process, including signing and sending the passport data.
 
 ---
