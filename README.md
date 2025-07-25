@@ -55,22 +55,22 @@ This project is a Next.js-based portal for FilPlus KYC, integrating with Gitcoin
    - Bring their passport onchain (to the Optimism network).
    - Connect their wallet and confirm ownership.
 
-2. **Score Validation:**  
+2. **Score Validation:**
    - The `ValidatePassportScore` component (`src/components/validatePassportScore.tsx`) uses the `useGetScore` hook to fetch the user's passport score from the blockchain.
    - The score is retrieved by calling the `getScore` function on the configured smart contract (see `src/blockchain/abi.ts`).
    - The score is displayed to the user, and the parent component is notified via a callback.
 
-3. **Score Fetching Logic:**  
+3. **Score Fetching Logic:**
    - The `useGetScore` hook (`src/lib/hooks/getScore.ts`) uses the `wagmi` library to read the `getScore` function from the smart contract.
    - The contract address and chain ID are configured via environment variables.
    - Loading state is managed to provide user feedback.
 
-4. **KYC Submission:**  
+4. **KYC Submission:**
    - Once the user's score meets the threshold, the `KycApproval` component (`src/components/ui/kycApproval.tsx`) is rendered.
    - When the user clicks "Share and submit passport," a typed data signature is generated using their wallet.
    - The signed message and signature are sent to the backend for KYC processing.
 
-5. **Main Page Orchestration:**  
+5. **Main Page Orchestration:**
    - The main page (`src/app/(routes)/page.tsx`) orchestrates the flow:
      - Renders instructions and score validation.
      - Shows the KYC submission button only if the score is sufficient.
