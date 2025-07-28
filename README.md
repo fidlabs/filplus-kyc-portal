@@ -100,17 +100,9 @@ This project is a Next.js-based portal for FilPlus KYC, integrating with Gitcoin
 
 ---
 
-## Environment Variables
-
-- `NEXT_PUBLIC_DECODER_CONTRACT_ADDRESS`: The address of the smart contract used to fetch passport scores.
-- `NEXT_PUBLIC_SCORE_THRESHOLD`: The minimum score required to proceed.
-- `NEXT_PUBLIC_BACKEND_API_URL`: The backend endpoint for KYC submission.
-
----
-
 ## Smart Contract Integration
 
-- The contract exposes functions such as `getScore(address)`, `getPassport(address)`, and `isHuman(address)`.
+- The contract exposes `getScore(address)` to find the score of the wallet.
 - The portal interacts with these functions using the `wagmi` library and the provided ABI.
 
 ---
